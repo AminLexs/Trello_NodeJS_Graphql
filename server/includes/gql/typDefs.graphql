@@ -1,0 +1,47 @@
+type Query {
+  helloWorld: String!
+  getTasks(status: String): Response
+  downloadFile: Response
+  logout: Response
+}
+
+type Mutation {
+  createTask(name: String!): Response
+  deleteTask(id: String!): Response
+  updateTask(task: TaskInput!): Response
+  register(user: UserInput): Response
+  login(user: UserInput): Response
+  uploadFile(file: Upload!, fileName: String!) : Response
+}
+scalar Date
+
+type Task {
+  id: ID!
+  status: String!
+  name: String!
+  fileName: String
+  birthDate: Date!
+  deathDate: Date
+}
+
+input TaskInput {
+  id: String!
+  status: String!
+  name: String!
+  fileName: String!
+  deathDate: Date
+  deleteFlag: Boolean
+  prev_file: String
+}
+
+input UserInput {
+  login: String!
+  password: String!
+}
+
+type Response {
+  code: Int!
+  obj: [Task]
+  #  success: Boolean!
+  #  message: String!
+}
