@@ -1,6 +1,7 @@
 # Trello GraphQL Node.JS
 
 Getting Started
+
 Start server and after client.
 In the project directory, you can run:
 
